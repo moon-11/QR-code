@@ -1,17 +1,37 @@
-import QRCode from "qrcode.react";
-import React, { useState } from "react";
+import QRCode from "qrcode";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 const QrCodeGenerator: React.FC = () => {
   const [text, setText] = useState<string>("Enter text");
+  const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
   const [size, setSize] = useState<number>(150);
   const [bgColor, setBgColor] = useState<string>("#ffffff");
   const [fgColor, setFgColor] = useState<string>("#000000");
 
+  useEffect(() => {
+    const generateQrCode = async () => {
+      try {
+        const url = await QRCode.toDataURL(text, {
+          width: size,
+          color: {
+            dark: fgColor,
+            light: bgColor,
+          },
+        });
+        setQrCodeUrl(url);
+      } catch (error) {
+        console.error("Erro ao gerar QR Code:", error);
+      }
+    };
+
+    generateQrCode();
+  }, [text, size, bgColor, fgColor]);
+
   return (
     <div className="qr-code-generator">
       <div className="qr-code-container">
-        <QRCode value={text} size={size} bgColor={bgColor} fgColor={fgColor} />
+        {qrCodeUrl && <img src={qrCodeUrl} alt="QR Code" />}
       </div>
       <div className="controls">
         <label>

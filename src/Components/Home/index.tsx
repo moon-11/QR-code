@@ -3,7 +3,7 @@ import "./styles.scss";
 
 function App() {
   return (
-    <div className="app">
+    <div className="home">
       <h1>QR Code Generator</h1>
       <QrCodeGenerator />
     </div>
