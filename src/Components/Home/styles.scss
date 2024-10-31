@@ -1,7 +1,7 @@
 .home {
   text-align: center;
   font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(135deg, #1e1f26, #282c34);
+  background: linear-gradient(135deg, #1e1f26, #2c3a4b);
   color: #f0f0f0;
   min-height: 100vh;
   display: flex;
@@ -10,31 +10,62 @@
   justify-content: center;
   padding: 2rem;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: #61dafb;
-    text-shadow: 0px 4px 10px rgba(97, 218, 251, 0.6);
-    letter-spacing: 0.05em;
-    animation: fadeInDown 1s ease-in-out;
+    text-shadow: 0px 4px 15px rgba(97, 218, 251, 0.7),
+      0px 0px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.1em;
+    animation: fadeInDown 1s ease-in-out, glow 2.5s infinite alternate;
 
     &:hover {
       color: #4ea8d0;
       text-shadow: 0px 6px 12px rgba(78, 168, 208, 0.8);
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+      transform: scale(1.05);
+      transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
     }
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 300;
     max-width: 700px;
-    line-height: 1.6;
+    line-height: 1.7;
     color: #d3d3d3;
-    margin-bottom: 2rem;
-    opacity: 0.8;
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #4ea8d0, #61dafb);
+    border-radius: 30px;
+    box-shadow: 0px 6px 12px rgba(78, 168, 208, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      background: linear-gradient(135deg, #61dafb, #4ea8d0);
+      box-shadow: 0px 8px 15px rgba(78, 168, 208, 0.7);
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
   }
 
   @keyframes fadeInDown {
@@ -48,11 +79,22 @@
     }
   }
 
+  @keyframes glow {
+    from {
+      text-shadow: 0px 4px 10px rgba(97, 218, 251, 0.6),
+        0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    to {
+      text-shadow: 0px 6px 15px rgba(97, 218, 251, 0.8),
+        0px 0px 15px rgba(0, 0, 0, 0.4);
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 1.5rem;
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
 
@@ -66,7 +108,7 @@
     padding: 1rem;
 
     h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 0.8rem;
     }
 
@@ -75,13 +117,18 @@
       max-width: 90%;
       line-height: 1.5;
     }
+
+    .cta-button {
+      font-size: 1.1rem;
+      padding: 0.7rem 1.4rem;
+    }
   }
 
   @media (max-width: 360px) {
     padding: 0.8rem;
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       margin-bottom: 0.6rem;
     }
 

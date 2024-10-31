@@ -1,7 +1,7 @@
 import QrCodeGenerator from "../QRGenerator";
 import "./styles.scss";
 
-function App() {
+function Home() {
   return (
     <div className="home">
       <h1>QR Code Generator</h1>
@@ -10,4 +10,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
