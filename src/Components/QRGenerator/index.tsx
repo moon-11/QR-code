@@ -66,6 +66,11 @@ const QrCodeGenerator: React.FC = () => {
             onChange={(e) => setFgColor(e.target.value)}
           />
         </label>
+        {qrCodeUrl && (
+          <a href={qrCodeUrl} download="QRCode.png" className="button">
+            Baixar QR Code
+          </a>
+        )}
       </div>
     </div>
   );

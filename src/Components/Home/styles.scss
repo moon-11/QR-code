@@ -37,30 +37,6 @@
     opacity: 0.8;
   }
 
-  .button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #61dafb;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(97, 218, 251, 0.5);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease,
-      transform 0.2s ease;
-
-    &:hover {
-      background-color: #4ea8d0;
-      box-shadow: 0px 6px 12px rgba(78, 168, 208, 0.8);
-      transform: translateY(-3px);
-    }
-
-    &:active {
-      transform: translateY(1px);
-    }
-  }
-
   @keyframes fadeInDown {
     from {
       opacity: 0;
@@ -69,6 +45,49 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 90%;
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.8rem;
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      max-width: 85%;
     }
   }
 }
